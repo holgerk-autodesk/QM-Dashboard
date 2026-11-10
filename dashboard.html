@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HEBERGER – QM-Auswertung Fertigteilwände Stützen</title>
+<link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E64128;--navy:#051B3F;--grey:#e5e5e5;--text:#1b2433}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Yantramanav',Arial,sans-serif;color:var(--text);background:#f4f5f7}
+header{background:#fff;border-bottom:4px solid var(--red);padding:18px 40px;display:flex;align-items:center;justify-content:space-between}
+header svg{height:34px;width:auto}
+header .meta{color:var(--navy);font-size:14px;text-align:right}
+.hero{background:var(--navy);color:#fff;padding:34px 40px}
+.hero h1{margin:0 0 6px;font-size:30px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.hero p{margin:0;font-weight:300;font-size:16px;opacity:.85}
+.filter{background:#fff;border-bottom:1px solid #dde1e7;padding:12px 40px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--navy)}
+.filter input{font:inherit;color:var(--navy);border:1px solid #bcc3cf;border-radius:3px;padding:5px 8px;margin-left:6px}
+.filter input:focus{outline:2px solid var(--red);outline-offset:1px}
+#reset{background:#fff;color:var(--navy);border:1px solid var(--navy);border-radius:3px;padding:6px 14px;font:500 13px 'Yantramanav',Arial,sans-serif;cursor:pointer}
+#reset:hover{background:var(--navy);color:#fff}#range{color:#667;font-size:13px}
+main{max-width:1200px;margin:0 auto;padding:28px 24px 48px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.card{background:#fff;border-radius:4px;box-shadow:0 1px 3px rgba(5,27,63,.12);padding:20px 24px}
+.kpi .v{font-size:38px;font-weight:700;color:var(--navy);line-height:1}
+.kpi .v.red{color:var(--red)}
+.kpi .l{margin-top:6px;font-size:14px;color:#566}
+h2{margin:0 0 4px;color:var(--navy);font-size:20px;text-transform:uppercase}
+.sub{margin:0 0 18px;font-size:14px;color:#566}
+.row{display:grid;grid-template-columns:minmax(220px,42%) 1fr 110px;align-items:center;gap:16px;padding:7px 0;border-bottom:1px solid #eef0f3}
+.row .lab{font-weight:400;color:var(--navy);font-size:14px;line-height:1.3}
+.row .lab b{font-weight:700;margin-right:6px}
+.grp{margin:18px 0 4px;padding-bottom:4px;border-bottom:2px solid var(--red);color:var(--red);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.5px}
+.bar{height:26px;background:var(--grey);border-radius:2px;position:relative;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--navy)}
+.bar.dev i{background:var(--red)}
+.bar.na{background:repeating-linear-gradient(45deg,#f0f0f0,#f0f0f0 6px,#e5e5e5 6px,#e5e5e5 12px)}
+.row .val{font-size:14px;text-align:right;font-weight:500}
+.row .val small{display:block;font-weight:300;color:#667}
+.legend{display:flex;gap:20px;font-size:13px;margin-top:16px;color:#445;flex-wrap:wrap}
+.legend span:before{content:"";display:inline-block;width:12px;height:12px;margin-right:6px;vertical-align:-1px}
+.l1:before{background:var(--navy)}.l2:before{background:var(--red)}.l3:before{background:#ccc}
+.act{margin-top:6px;display:flex;gap:10px;align-items:center;justify-content:flex-end}
+#refresh{background:var(--red);color:#fff;border:0;border-radius:3px;padding:8px 18px;font:700 14px 'Yantramanav',Arial,sans-serif;text-transform:uppercase;letter-spacing:.4px;cursor:pointer}
+#refresh:hover{background:#c9351f}#refresh:disabled{opacity:.6;cursor:wait}
+#stand{font-size:12px;color:#667}
+#msg{font-size:12px;margin-top:4px;min-height:14px;color:var(--navy)}#msg.err{color:#c9351f}
+footer{text-align:center;font-size:12px;color:#889;padding:16px}
+@media(max-width:700px){.filter{padding:12px 16px}header,.hero{padding-left:16px;padding-right:16px}.row{grid-template-columns:1fr 90px}.row .lab{grid-column:1/-1}}
+</style></head><body>
+<header>
+
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 738.38 110.3" style="enable-background:new 0 0 738.38 110.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#E53626;}
+	.st1{fill:#051B3F;}
+</style>
+<g>
+	<g>
+		<polygon class="st0" points="10.39,15.05 10.39,95.98 40.53,95.98 40.53,81.72 24.64,81.72 24.64,29.31 40.53,29.31 40.53,15.05 
+					"/>
+		<polygon class="st0" points="94.27,15.05 94.27,95.98 64.13,95.98 64.13,81.72 80.01,81.72 80.01,29.31 64.13,29.31 64.13,15.05 
+					"/>
+	</g>
+	<g>
+		<rect x="40.56" y="41.23" class="st0" width="23.54" height="11.85"/>
+		<rect x="40.56" y="57.95" class="st0" width="23.54" height="11.85"/>
+	</g>
+</g>
+<g>
+	<path class="st1" d="M716.43,67.82v-1.76c8.37-4.45,13.5-12.69,13.5-23.76c0-15.8-11.88-27.27-28.76-27.27h-33.62v81h19.57v-26.6
+		h8.37l14.99,26.6h22.41v-1.35L716.43,67.82z M699.69,52.83h-12.56V31.91h12.56c5.67,0,9.99,3.38,9.99,10.4
+		C709.68,49.19,705.23,52.83,699.69,52.83z"/>
+	<polygon class="st1" points="647.27,47.3 618.11,47.3 618.11,31.91 653.07,31.91 653.07,15.03 598.53,15.03 598.53,96.04 
+		653.07,96.04 653.07,79.16 618.11,79.16 618.11,62.69 647.27,62.69 	"/>
+	<path class="st1" d="M564.26,63.5c0,8.64-4.18,15.53-13.9,15.53c-9.99,0-17.96-9.45-17.96-23.49c0-14.04,7.97-23.49,17.96-23.49
+		c10.12,0,15.53,6.48,15.53,6.48l11.75-15.12c0,0-7.83-10.13-27-10.13c-24.17,0-38.48,19.04-38.48,42.26
+		c0,23.22,14.18,42.26,38.21,42.26c21.87,0,35.91-15.12,35.91-38.21V47.84h-37.53v15.39h15.53V63.5z"/>
+	<path class="st1" d="M488.69,67.82v-1.76c8.37-4.45,13.5-12.69,13.5-23.76c0-15.8-11.88-27.27-28.76-27.27h-33.62v81h19.58v-26.6
+		h8.37l14.99,26.6h22.41v-1.35L488.69,67.82z M471.95,52.83h-12.55V31.91h12.55c5.67,0,9.99,3.38,9.99,10.4
+		C481.94,49.19,477.48,52.83,471.95,52.83z"/>
+	<polygon class="st1" points="417.13,47.3 387.97,47.3 387.97,31.91 422.94,31.91 422.94,15.03 368.4,15.03 368.4,96.04 
+		422.94,96.04 422.94,79.16 387.97,79.16 387.97,62.69 417.13,62.69 	"/>
+	<path class="st1" d="M344.23,54.45v-1.08c5.13-3.65,8.37-9.72,8.37-16.2c0-13.77-8.23-22.14-26.19-22.14h-35.24v81h35.51
+		c18.09,0,27.81-9.05,27.81-24.17C354.49,63.63,350.98,56.88,344.23,54.45z M310.75,31.91h13.91c4.86,0,7.16,3.64,7.16,8.1
+		c0,4.19-2.56,7.83-7.56,7.83h-13.5V31.91z M325.46,79.16h-14.72V62.42h15.39c5.13,0,7.29,4.46,7.29,8.5
+		C333.43,75.25,330.87,79.16,325.46,79.16z"/>
+	<polygon class="st1" points="268.62,47.3 239.46,47.3 239.46,31.91 274.43,31.91 274.43,15.03 219.88,15.03 219.88,96.04 
+		274.43,96.04 274.43,79.16 239.46,79.16 239.46,62.69 268.62,62.69 	"/>
+	<polygon class="st1" points="202.56,15.03 183.02,15.03 183.02,47.78 154.45,47.78 154.45,15.03 134.91,15.03 134.91,96.03 
+		154.45,96.03 154.45,63.14 183.02,63.14 183.02,96.03 202.56,96.03 	"/>
+</g>
+</svg>
+<div class="meta">Autodesk Forma · ACC Demo – Golden Nugget (DEU)<div class="act"><button id="refresh" type="button">Aktualisieren</button><span id="stand"></span></div><div id="msg" role="status"></div></div></header>
+<div class="hero"><h1>QM-Auswertung Fertigteilwände Stützen</h1><p>Formular „QM_CL Fertigteilwände Stützen“ · Punkte 1–18 · Ja/Nein-Antworten</p></div>
+<div class="filter"><label>Übermittelt von <input type="date" id="from"></label><label>bis <input type="date" id="to"></label><button type="button" id="reset">Zurücksetzen</button><span id="range"></span></div>
+<main>
+<div class="kpis" id="kpis"></div>
+<div class="card"><h2>Konformität je Prüfpunkt</h2>
+<p class="sub">Anteil der Antworten ohne „Nein“. Ein „Nein“ gilt als Abweichung; ohne „Nein“ zeigt der Balken 100 %.</p>
+<div id="chart"></div>
+<div class="legend"><span class="l1">Konform (ohne Abweichung)</span><span class="l2">Abweichung („Nein“ vorhanden)</span><span class="l3">Nicht beantwortet</span></div></div>
+</main>
+<footer>Ausgewertet: Formulare mit Status „Submitted“, gewertet als „Geschlossen“ · Quelle: APS Forms API</footer>
+<script>
+let D={"points": [{"n": 1, "label": "Liegt eine freigegebene Montageplanung vor?", "group": "Prüfpunkte Fertigteile"}, {"n": 2, "label": "Wurde die Bodenplatte auf Höhe und auf Ebenheit geprüft?", "group": null}, {"n": 3, "label": "Ist die Unterkonstruktion ausreichend tragfähig (Betonerhärtung)?", "group": null}, {"n": 4, "label": "Stimmt die Elementnummer mit dem Montageplan überein?", "group": null}, {"n": 5, "label": "Sind die Elemente bei Anlieferung beschädigt oder fehlerhaft?", "group": null}, {"n": 6, "label": "Sind alle Maße, Aussparungen, Durchbrüche, Einbauteile, Leerrohre inkl. Anschlussrohre und Elektroinstallation kontrolliert?", "group": null}, {"n": 7, "label": "Sind Montageabstützungen im vorgesehenen Winkel angebracht?", "group": null}, {"n": 8, "label": "Ist besonderes Augenmerk auf die Feinjustierung des Elements mittels der Schrägstützen gelegt (geringer Winkel kann zu großer Abweichung führen!!)?", "group": null}, {"n": 9, "label": "Ist ein geeigneter schwindarmer Vergussmörtel vorhanden?", "group": null}, {"n": 10, "label": "Info: Erst nach lotrechter Ausrichtung und ausreichender Sicherung vom Kran abhängen!", "group": null}, {"n": 11, "label": "Info: Montageunterstützung erst nach ausreichender Erhärtung entfernen!", "group": null}, {"n": 12, "label": "Werden die Elemente auf Unterlegplättchen abgesetzt und ausgerichtet (Auf Geschosshöhe und Flucht achten!)?", "group": "Prüfpunkte Fertigwände"}, {"n": 13, "label": "Wird mit der Verlegung ausgehend von Zwangspunkten begonnen (z.B. Außenkanten)?", "group": null}, {"n": 14, "label": "Ist die genaue Lage der Anschlussbewehrung (Rückbiegeanschlüsse, Schienen, EBT, etc.) geprüft?", "group": null}, {"n": 15, "label": "Sind Elementstöße auf Versatz geprüft?", "group": null}, {"n": 16, "label": "Sind die Hüllrohre für die Dorne lage- und höhengenau?", "group": "Prüfpunkte Fertigteilstützen mit Dorn-Verbindung"}, {"n": 17, "label": "Sind Hilfsfundamente für die Montage erforderlich?", "group": null}, {"n": 18, "label": "Ist die Verzahnung im Köcher gemäß Tragwerksplanung hergestellt?", "group": null}], "recs": [{"nr": 439, "datum": "2026-11-09", "ts": "2026-11-09T15:04:04.029953+00:00", "v": {"1": "Ja", "2": "Ja", "3": "Ja", "4": "Nein", "5": "Ja", "6": "Ja", "7": "Ja", "8": "Nein", "9": "Ja", "10": "Ja", "11": "Ja"}}]};
+const PROJECT='78f50164-9755-489d-b29f-f278cf89e139';
+const API='https://developer.api.autodesk.com/construction/forms/v1/projects/'+PROJECT+'/forms';
+const $=id=>document.getElementById(id);
+const fmt=n=>String(n).replace('.',',');
+const day=iso=>new Date(iso).toLocaleDateString('sv-SE');
+function aggregate(){
+ const f=$('from').value,t=$('to').value;
+ const sel=D.recs.filter(r=>{const d=day(r.ts);return (!f||d>=f)&&(!t||d<=t);});
+ const points=D.points.map(p=>{
+  let ja=0,nein=0;
+  sel.forEach(r=>{if(r.v[p.n]==='Ja')ja++;else if(r.v[p.n]==='Nein')nein++;});
+  return {...p,ja,nein,total:ja+nein,pct:ja+nein?Math.round(1000*ja/(ja+nein))/10:null};
+ });
+ return {sel,points};
+}
+function render(){
+ const {sel,points:P}=aggregate();
+ const answered=P.filter(p=>p.total>0), dev=answered.filter(p=>p.nein>0);
+ const total=answered.reduce((a,p)=>a+p.total,0), nein=answered.reduce((a,p)=>a+p.nein,0);
+ const k=(v,l,c)=>`<div class="card kpi"><div class="v ${c||''}">${v}</div><div class="l">${l}</div></div>`;
+ $('kpis').innerHTML=k(sel.length,'ausgewertete Formulare (von '+D.recs.length+' geschlossenen)')+k(answered.length+' / 18','Punkte beantwortet')+k(dev.length,'Punkte mit Abweichung','red')+k(total?fmt(((total-nein)/total*100).toFixed(0))+' %':'–','Gesamt-Konformität');
+ $('range').textContent=($('from').value||$('to').value)?'Zeitraum aktiv: '+($('from').value||'Anfang')+' bis '+($('to').value||'heute'):'Kein Zeitraum gewählt – alle Formulare';
+ $('chart').innerHTML=P.map(p=>{
+  const g=p.group?`<div class="grp">${p.group}</div>`:'';
+  const lab=`<div class="lab"><b>${p.n}.</b>${p.label}</div>`;
+  if(p.pct===null) return g+`<div class="row">${lab}<div class="bar na"></div><div class="val">–<small>keine Antwort</small></div></div>`;
+  return g+`<div class="row">${lab}<div class="bar ${p.nein>0?'dev':''}"><i style="width:${p.pct}%"></i></div><div class="val">${fmt(p.pct)} %<small>${p.nein} Nein / ${p.total}</small></div></div>`}).join('');
+ $('stand').textContent=D.stand?'Stand: '+D.stand:'';
+}
+function compute(forms){
+ return forms.filter(f=>(f.formTemplate&&f.formTemplate.name||f.name||'').includes('QM_CL')&&f.status==='submitted').map(f=>{
+  const v={};(f.pdfValues||[]).forEach(x=>{if(x.value==='Ja'||x.value==='Nein')v[x.name]=x.value;});
+  return {nr:f.formNum,datum:f.formDate,ts:f.updatedAt,v};
+ });
+}
+function msg(t,err){const m=$('msg');m.textContent=t;m.className=err?'err':'';}
+async function fetchAll(token){
+ let items=[],offset=0;
+ for(;;){
+  const r=await fetch(API+'?limit=50&offset='+offset,{headers:{Authorization:'Bearer '+token}});
+  if(r.status===401||r.status===403){const e=new Error('auth');e.auth=true;throw e;}
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const j=await r.json(), data=j.data||[];
+  items=items.concat(data); offset+=data.length;
+  if(!data.length||offset>=((j.pagination||{}).totalResults||0)) return items;
+ }
+}
+const SERVER=location.protocol.startsWith('http');
+function applyForms(forms){
+ const before=JSON.stringify(D.recs);
+ D={...D,recs:compute(forms),stand:new Date().toLocaleString('de-DE')}; render();
+ return before!==JSON.stringify(D.recs);
+}
+async function viaServer(auto){
+ const b=$('refresh'); b.disabled=true; msg('Prüfe auf neue Daten …');
+ try{
+  const r=await fetch('/api/forms');
+  if(r.status===401){ if(auto){msg('Nicht angemeldet – Klick auf „Aktualisieren“ startet die Autodesk-Anmeldung.');} else {location.href='/login';} return; }
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const changed=applyForms(await r.json());
+  msg(changed?'Neue Daten gefunden – Auswertung aktualisiert.':'Keine Änderungen – Auswertung ist aktuell.');
+ }catch(e){ msg('Abruf fehlgeschlagen ('+e.message+'). Läuft server.py noch?',true); }
+ finally{b.disabled=false;}
+}
+async function viaToken(){
+ const b=$('refresh'); let token=sessionStorage.getItem('aps_token');
+ if(!token){token=(prompt('APS Access Token (3-legged, Scope data:read) einfügen. Das Token wird nur in dieser Browser-Sitzung gehalten.')||'').trim();
+  if(!token){msg('Abgebrochen – kein Token eingegeben.',true);return;}}
+ b.disabled=true; msg('Prüfe auf neue Daten …');
+ try{
+  const forms=await fetchAll(token); sessionStorage.setItem('aps_token',token);
+  const changed=applyForms(forms);
+  msg(changed?'Neue Daten gefunden – Auswertung aktualisiert.':'Keine Änderungen – Auswertung ist aktuell.');
+ }catch(e){
+  if(e.auth){sessionStorage.removeItem('aps_token');msg('Token ungültig oder abgelaufen. Bitte erneut auf „Aktualisieren“ klicken.',true);}
+  else msg('Abruf fehlgeschlagen ('+e.message+'). Der Browser blockiert evtl. den Zugriff – besser über server.py starten.',true);
+ }finally{b.disabled=false;}
+}
+$('refresh').onclick=()=>SERVER?viaServer(false):viaToken();
+$('from').onchange=$('to').onchange=render;
+$('reset').onclick=()=>{$('from').value=$('to').value='';render();};
+render();
+if(SERVER) viaServer(true);
+</script></body></html>
