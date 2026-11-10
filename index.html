@@ -151,6 +151,7 @@ async function fetchAll(token){
  }
 }
 const SERVER=location.protocol.startsWith('http');
+let NOSERVER=false;
 function applyForms(forms){
  const before=JSON.stringify(D.recs);
  D={...D,recs:compute(forms),stand:new Date().toLocaleString('de-DE')}; render();
@@ -160,6 +161,7 @@ async function viaServer(auto){
  const b=$('refresh'); b.disabled=true; msg('Prüfe auf neue Daten …');
  try{
   const r=await fetch('/api/forms');
+  if(r.status===404){ NOSERVER=true; b.disabled=false; msg(auto?'':'Kein Server gefunden – Abruf mit Token.'); if(!auto) return viaToken(); return; }
   if(r.status===401){ if(auto){msg('Nicht angemeldet – Klick auf „Aktualisieren“ startet die Autodesk-Anmeldung.');} else {location.href='/login';} return; }
   if(!r.ok) throw new Error('HTTP '+r.status);
   const changed=applyForms(await r.json());
@@ -181,7 +183,7 @@ async function viaToken(){
   else msg('Abruf fehlgeschlagen ('+e.message+'). Der Browser blockiert evtl. den Zugriff – besser über server.py starten.',true);
  }finally{b.disabled=false;}
 }
-$('refresh').onclick=()=>SERVER?viaServer(false):viaToken();
+$('refresh').onclick=()=>(SERVER&&!NOSERVER)?viaServer(false):viaToken();
 $('from').onchange=$('to').onchange=render;
 $('reset').onclick=()=>{$('from').value=$('to').value='';render();};
 render();
