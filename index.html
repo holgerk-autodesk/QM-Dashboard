@@ -102,7 +102,7 @@ footer{text-align:center;font-size:12px;color:#889;padding:16px}
 </main>
 <footer>Ausgewertet: Formulare mit Status „Submitted“, gewertet als „Geschlossen“ · Quelle: APS Forms API</footer>
 <script>
-let D={"points": [{"n": 1, "label": "Liegt eine freigegebene Montageplanung vor?", "group": "Prüfpunkte Fertigteile"}, {"n": 2, "label": "Wurde die Bodenplatte auf Höhe und auf Ebenheit geprüft?", "group": null}, {"n": 3, "label": "Ist die Unterkonstruktion ausreichend tragfähig (Betonerhärtung)?", "group": null}, {"n": 4, "label": "Stimmt die Elementnummer mit dem Montageplan überein?", "group": null}, {"n": 5, "label": "Sind die Elemente bei Anlieferung beschädigt oder fehlerhaft?", "group": null}, {"n": 6, "label": "Sind alle Maße, Aussparungen, Durchbrüche, Einbauteile, Leerrohre inkl. Anschlussrohre und Elektroinstallation kontrolliert?", "group": null}, {"n": 7, "label": "Sind Montageabstützungen im vorgesehenen Winkel angebracht?", "group": null}, {"n": 8, "label": "Ist besonderes Augenmerk auf die Feinjustierung des Elements mittels der Schrägstützen gelegt (geringer Winkel kann zu großer Abweichung führen!!)?", "group": null}, {"n": 9, "label": "Ist ein geeigneter schwindarmer Vergussmörtel vorhanden?", "group": null}, {"n": 10, "label": "Info: Erst nach lotrechter Ausrichtung und ausreichender Sicherung vom Kran abhängen!", "group": null}, {"n": 11, "label": "Info: Montageunterstützung erst nach ausreichender Erhärtung entfernen!", "group": null}, {"n": 12, "label": "Werden die Elemente auf Unterlegplättchen abgesetzt und ausgerichtet (Auf Geschosshöhe und Flucht achten!)?", "group": "Prüfpunkte Fertigwände"}, {"n": 13, "label": "Wird mit der Verlegung ausgehend von Zwangspunkten begonnen (z.B. Außenkanten)?", "group": null}, {"n": 14, "label": "Ist die genaue Lage der Anschlussbewehrung (Rückbiegeanschlüsse, Schienen, EBT, etc.) geprüft?", "group": null}, {"n": 15, "label": "Sind Elementstöße auf Versatz geprüft?", "group": null}, {"n": 16, "label": "Sind die Hüllrohre für die Dorne lage- und höhengenau?", "group": "Prüfpunkte Fertigteilstützen mit Dorn-Verbindung"}, {"n": 17, "label": "Sind Hilfsfundamente für die Montage erforderlich?", "group": null}, {"n": 18, "label": "Ist die Verzahnung im Köcher gemäß Tragwerksplanung hergestellt?", "group": null}], "recs": [{"nr": 439, "datum": "2026-11-09", "ts": "2026-11-09T15:04:04.029953+00:00", "v": {"1": "Ja", "2": "Ja", "3": "Ja", "4": "Nein", "5": "Ja", "6": "Ja", "7": "Ja", "8": "Nein", "9": "Ja", "10": "Ja", "11": "Ja"}}]};
+let D={"points": [{"n": 1, "label": "Liegt eine freigegebene Montageplanung vor?", "group": "Prüfpunkte Fertigteile"}, {"n": 2, "label": "Wurde die Bodenplatte auf Höhe und auf Ebenheit geprüft?", "group": null}, {"n": 3, "label": "Ist die Unterkonstruktion ausreichend tragfähig (Betonerhärtung)?", "group": null}, {"n": 4, "label": "Stimmt die Elementnummer mit dem Montageplan überein?", "group": null}, {"n": 5, "label": "Sind die Elemente bei Anlieferung beschädigt oder fehlerhaft?", "group": null}, {"n": 6, "label": "Sind alle Maße, Aussparungen, Durchbrüche, Einbauteile, Leerrohre inkl. Anschlussrohre und Elektroinstallation kontrolliert?", "group": null}, {"n": 7, "label": "Sind Montageabstützungen im vorgesehenen Winkel angebracht?", "group": null}, {"n": 8, "label": "Ist besonderes Augenmerk auf die Feinjustierung des Elements mittels der Schrägstützen gelegt (geringer Winkel kann zu großer Abweichung führen!!)?", "group": null}, {"n": 9, "label": "Ist ein geeigneter schwindarmer Vergussmörtel vorhanden?", "group": null}, {"n": 10, "label": "Info: Erst nach lotrechter Ausrichtung und ausreichender Sicherung vom Kran abhängen!", "group": null}, {"n": 11, "label": "Info: Montageunterstützung erst nach ausreichender Erhärtung entfernen!", "group": null}, {"n": 12, "label": "Werden die Elemente auf Unterlegplättchen abgesetzt und ausgerichtet (Auf Geschosshöhe und Flucht achten!)?", "group": "Prüfpunkte Fertigwände"}, {"n": 13, "label": "Wird mit der Verlegung ausgehend von Zwangspunkten begonnen (z.B. Außenkanten)?", "group": null}, {"n": 14, "label": "Ist die genaue Lage der Anschlussbewehrung (Rückbiegeanschlüsse, Schienen, EBT, etc.) geprüft?", "group": null}, {"n": 15, "label": "Sind Elementstöße auf Versatz geprüft?", "group": null}, {"n": 16, "label": "Sind die Hüllrohre für die Dorne lage- und höhengenau?", "group": "Prüfpunkte Fertigteilstützen mit Dorn-Verbindung"}, {"n": 17, "label": "Sind Hilfsfundamente für die Montage erforderlich?", "group": null}, {"n": 18, "label": "Ist die Verzahnung im Köcher gemäß Tragwerksplanung hergestellt?", "group": null}], "recs": []};
 const PROJECT='78f50164-9755-489d-b29f-f278cf89e139';
 const API='https://developer.api.autodesk.com/construction/forms/v1/projects/'+PROJECT+'/forms';
 const $=id=>document.getElementById(id);
@@ -150,7 +150,9 @@ async function fetchAll(token){
   if(!data.length||offset>=((j.pagination||{}).totalResults||0)) return items;
  }
 }
-const SERVER=location.protocol.startsWith('http');
+const LOCAL=['localhost','127.0.0.1'].includes(location.hostname);
+const SERVER=LOCAL;
+const CLIENT_ID='3zlmABrM6ix7Dg7K6NG6nUZ7ROSAo2x7DALEL4LvRRR2AL9n', REDIRECT='https://holgerk-autodesk.github.io/QM-Dashboard/', AUTHURL='https://developer.api.autodesk.com/authentication/v2';
 let NOSERVER=false;
 function applyForms(forms){
  const before=JSON.stringify(D.recs);
@@ -183,9 +185,54 @@ async function viaToken(){
   else msg('Abruf fehlgeschlagen ('+e.message+'). Der Browser blockiert evtl. den Zugriff – besser über server.py starten.',true);
  }finally{b.disabled=false;}
 }
-$('refresh').onclick=()=>(SERVER&&!NOSERVER)?viaServer(false):viaToken();
+
+const b64u=b=>btoa(String.fromCharCode(...new Uint8Array(b))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+async function tokenReq(form){
+ const r=await fetch(AUTHURL+'/token',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_id:CLIENT_ID,...form})});
+ if(!r.ok){const e=new Error('Token HTTP '+r.status);e.auth=true;throw e;}
+ const j=await r.json();
+ const s={access_token:j.access_token,refresh_token:j.refresh_token||JSON.parse(localStorage.getItem('aps_pkce')||'{}').refresh_token,expires_at:Date.now()+(j.expires_in||3600)*1000-60000};
+ localStorage.setItem('aps_pkce',JSON.stringify(s)); return s.access_token;
+}
+async function pkceToken(){
+ const s=JSON.parse(localStorage.getItem('aps_pkce')||'{}');
+ if(s.access_token&&s.expires_at>Date.now()) return s.access_token;
+ if(s.refresh_token){try{return await tokenReq({grant_type:'refresh_token',refresh_token:s.refresh_token,scope:'data:read'});}catch(e){localStorage.removeItem('aps_pkce');}}
+ return null;
+}
+async function startLogin(){
+ const rnd=n=>b64u(crypto.getRandomValues(new Uint8Array(n)));
+ const verifier=rnd(48), state=rnd(16);
+ const challenge=b64u(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(verifier)));
+ sessionStorage.setItem('aps_pkce_v',JSON.stringify({verifier,state}));
+ location.href=AUTHURL+'/authorize?'+new URLSearchParams({response_type:'code',client_id:CLIENT_ID,redirect_uri:REDIRECT,scope:'data:read',code_challenge:challenge,code_challenge_method:'S256',state});
+}
+async function handleCallback(){
+ const q=new URLSearchParams(location.search);
+ if(!q.has('code')) return;
+ const saved=JSON.parse(sessionStorage.getItem('aps_pkce_v')||'{}');
+ history.replaceState(null,'',location.pathname);
+ sessionStorage.removeItem('aps_pkce_v');
+ if(!saved.state||q.get('state')!==saved.state){msg('Anmeldung ungültig (state) – bitte erneut versuchen.',true);return;}
+ try{await tokenReq({grant_type:'authorization_code',code:q.get('code'),code_verifier:saved.verifier,redirect_uri:REDIRECT});}
+ catch(e){msg('Anmeldung fehlgeschlagen ('+e.message+').',true);}
+}
+async function viaPkce(auto){
+ const b=$('refresh'); b.disabled=true; msg('Prüfe auf neue Daten …');
+ try{
+  const tok=await pkceToken();
+  if(!tok){b.disabled=false; if(auto){msg('Nicht angemeldet – Klick auf „Aktualisieren“ startet die Autodesk-Anmeldung.');}else{await startLogin();} return;}
+  const changed=applyForms(await fetchAll(tok));
+  msg(changed?'Neue Daten gefunden – Auswertung aktualisiert.':'Keine Änderungen – Auswertung ist aktuell.');
+ }catch(e){
+  if(e.auth){localStorage.removeItem('aps_pkce');msg('Anmeldung abgelaufen. Bitte erneut auf „Aktualisieren“ klicken.',true);}
+  else msg('Abruf fehlgeschlagen ('+e.message+'). Der Browser blockiert evtl. den Zugriff (CORS).',true);
+ }finally{b.disabled=false;}
+}
+$('refresh').onclick=()=>location.protocol==='file:'?viaToken():LOCAL?(NOSERVER?viaToken():viaServer(false)):viaPkce(false);
 $('from').onchange=$('to').onchange=render;
 $('reset').onclick=()=>{$('from').value=$('to').value='';render();};
 render();
-if(SERVER) viaServer(true);
+if(LOCAL) viaServer(true);
+else if(location.protocol!=='file:') (async()=>{await handleCallback();viaPkce(true);})();
 </script></body></html>
